@@ -1,0 +1,1 @@
+Garmin data field for simulating Wings for Life catcher car
