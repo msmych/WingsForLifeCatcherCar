@@ -25,6 +25,9 @@ class Runner extends Ui.Drawable {
 	}
 	
 	function draw(dc) {
+		if (finish == 0) {
+			return;
+		}
 		bitmap.locX = distance/finish * (dc.getWidth() - bitmap.getDimensions()[0]);
 		bitmap.locY = dc.getHeight() - bitmap.getDimensions()[1];
 		bitmap.draw(dc);

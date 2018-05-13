@@ -30,6 +30,9 @@ class CatcherCar extends Ui.Drawable {
 	}
 	
 	function draw(dc) {
+		if (finish == 0) {
+			return;
+		}
 		bitmap.locX = distance/finish * dc.getWidth() - bitmap.getDimensions()[0];
 		bitmap.locY = dc.getHeight() - bitmap.getDimensions()[1];
 		bitmap.draw(dc);
@@ -37,6 +40,9 @@ class CatcherCar extends Ui.Drawable {
 	}
 	
 	function drawDistanceFromRunner(dc) {
+		if (distanceFromRunner > 0) {
+			return;
+		}
 		var formattedDistanceFromRunner = (distanceFromRunner/METERS_IN_KILOMETER).format("%.2f");
 		var position = distance/finish * dc.getWidth() - bitmap.getDimensions()[1];
 		if (dc.getTextWidthInPixels(formattedDistanceFromRunner, Gfx.FONT_XTINY) < position) {
