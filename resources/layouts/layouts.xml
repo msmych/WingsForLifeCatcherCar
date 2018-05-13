@@ -1,0 +1,22 @@
+<layouts>
+    <layout id="MainLayout">
+		<drawable class="Background"/>
+		<label id="remainingTimeLabel"
+				x="dc.getWidth()*1/4"
+				y="dc.getHeight()/2 - dc.getFontHeight(Gfx.FONT_LARGE)/2 - dc.getFontHeight(Gfx.FONT_XTINY)"
+				text="@Strings.remainingTimeString"
+				color="Gfx.COLOR_LT_GRAY"
+				font="Gfx.FONT_XTINY"
+				justification="Gfx.TEXT_JUSTIFY_CENTER" />
+		<label id="finishLabel"
+				x="dc.getWidth()*3/4"
+				y="dc.getHeight()/2 - dc.getFontHeight(Gfx.FONT_LARGE)/2 - dc.getFontHeight(Gfx.FONT_XTINY)"
+				text="@Strings.finishString"
+				color="Gfx.COLOR_LT_GRAY"
+				font="Gfx.FONT_XTINY"
+				justification="Gfx.TEXT_JUSTIFY_CENTER" />
+		<drawable class="CatcherCar"/>
+		<drawable class="Runner"/>
+		<drawable class="Calculator"/>
+	</layout>
+</layouts>

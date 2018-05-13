@@ -1,0 +1,5 @@
+<drawables>
+	<bitmap filename="launcher_icon.png" id="LauncherIcon"/>
+	<bitmap filename="catcher_car.png" id="catcherCarBitmap"/>
+	<bitmap filename="runner.png" id="runnerBitmap"/>
+</drawables>
