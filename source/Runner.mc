@@ -2,10 +2,10 @@ using Toybox.WatchUi as Ui;
 
 class Runner extends Ui.Drawable {
 
-	hidden var distance = 0;
-	hidden var finish = CHAMPION_FINISH;
-	
 	hidden var bitmap;
+
+	hidden var distance = 0;
+	hidden var finish = CHAMPION_FINISH;	
 	
 	function initialize() {
 		var settings = {
@@ -17,10 +17,8 @@ class Runner extends Ui.Drawable {
 		});
 	}
 	
-	function update(info, estimatedFinish) {
-		if (info has :elapsedDistance and info.elapsedDistance != null) {
-			distance = info.elapsedDistance;
-		}
+	function update(elapsedDistance, estimatedFinish) {
+		distance = elapsedDistance;
 		finish = estimatedFinish;
 	}
 	
@@ -32,9 +30,4 @@ class Runner extends Ui.Drawable {
 		bitmap.locY = dc.getHeight() - bitmap.getDimensions()[1];
 		bitmap.draw(dc);
 	}
-	
-	function getDistance() {
-		return distance;
-	}
-	
 }

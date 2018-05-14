@@ -4,7 +4,7 @@ using Toybox.Activity as Activity;
 
 class WingsForLifeCatcherCarView extends Ui.DataField {
 
-    hidden var info = new Activity.Info();
+    hidden var calculator = new Calculator();
 
     function initialize() {
         DataField.initialize();
@@ -22,21 +22,19 @@ class WingsForLifeCatcherCarView extends Ui.DataField {
     // Calculate a value and save it locally in this method.
     // Note that compute() and onUpdate() are asynchronous, and there is no
     // guarantee that compute() will be called before onUpdate().
-    function compute(activityInfo) {
-		info = activityInfo;
+    function compute(info) {
+		calculator.calculate(info);
     }
 
     // Display the value you computed here. This will be called
     // once a second when the data field is visible.
     function onUpdate(dc) {
-        var catcherCarView = View.findDrawableById("CatcherCar");
-        catcherCarView.update(info);
-        var catcherCarDistance = catcherCarView.getDistance();
-        var finish = View.findDrawableById("Calculator").calculate(info, catcherCarDistance);
-        catcherCarView.setFinish(finish);
-        var runnerView = View.findDrawableById("Runner");
-        runnerView.update(info, finish);
-        catcherCarView.setDistanceFromRunner(runnerView.getDistance());
+    	var runnerDistance = calculator.getRunnerDistance();
+    	var finish = calculator.getFinish();
+        View.findDrawableById("CatcherCar").update(calculator.getCatcherCarDistance(), runnerDistance, finish);
+        View.findDrawableById("Runner").update(runnerDistance, finish);
+        View.findDrawableById("RemainingTime").update(calculator.getRemainingTime(), calculator.isFinished());
+        View.findDrawableById("Finish").update(finish);
 
         // Call parent's onUpdate(dc) to redraw the layout
         View.onUpdate(dc);

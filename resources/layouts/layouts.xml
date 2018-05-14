@@ -17,6 +17,7 @@
 				justification="Gfx.TEXT_JUSTIFY_CENTER" />
 		<drawable class="CatcherCar"/>
 		<drawable class="Runner"/>
-		<drawable class="Calculator"/>
+		<drawable class="RemainingTime"/>
+		<drawable class="Finish"/>
 	</layout>
 </layouts>
