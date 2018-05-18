@@ -4,6 +4,15 @@ using Toybox.Activity as Activity;
 
 class WingsForLifeCatcherCarView extends Ui.DataField {
 
+	enum {
+		FULL,
+		ROUND,
+		TOP,
+		BOTTOM
+	}
+	
+	hidden var layout = FULL;
+
     hidden var calculator = new Calculator();
 
     function initialize() {
@@ -13,7 +22,24 @@ class WingsForLifeCatcherCarView extends Ui.DataField {
     // Set your layout here. Anytime the size of obscurity of
     // the draw context is changed this will be called.
     function onLayout(dc) {
-        View.setLayout(Rez.Layouts.MainLayout(dc));
+    	
+    	switch (DataField.getObscurityFlags()) {
+    		case OBSCURE_TOP + OBSCURE_BOTTOM + OBSCURE_LEFT + OBSCURE_RIGHT:
+    			layout = ROUND;
+    			View.setLayout(Rez.Layouts.RoundLayout(dc));
+    			break;
+    		case OBSCURE_TOP + OBSCURE_LEFT + OBSCURE_RIGHT:
+    			layout = TOP;
+    			View.setLayout(Rez.Layouts.TopLayout(dc));
+    			break;
+    		case OBSCURE_BOTTOM + OBSCURE_LEFT + OBSCURE_RIGHT:
+    			layout = BOTTOM;
+    			View.setLayout(Rez.Layouts.BottomLayout(dc));
+    			break;
+    		default:
+    			layout = FULL;
+    			View.setLayout(Rez.Layouts.MainLayout(dc));
+    	}
 
         return true;
     }
@@ -31,10 +57,22 @@ class WingsForLifeCatcherCarView extends Ui.DataField {
     function onUpdate(dc) {
     	var runnerDistance = calculator.getRunnerDistance();
     	var finish = calculator.getFinish();
-        View.findDrawableById("CatcherCar").update(calculator.getCatcherCarDistance(), runnerDistance, finish);
-        View.findDrawableById("Runner").update(runnerDistance, finish);
-        View.findDrawableById("RemainingTime").update(calculator.getRemainingTime(), calculator.isFinished());
-        View.findDrawableById("Finish").update(finish);
+    	
+    	var catcherCarView = View.findDrawableById("CatcherCar");
+    	catcherCarView.setLayout(layout);
+        catcherCarView.update(calculator.getCatcherCarDistance(), runnerDistance, finish);
+        
+        var runnerView = View.findDrawableById("Runner");
+        runnerView.setLayout(layout);
+        runnerView.update(runnerDistance, finish);
+        
+        var remainingTimeView = View.findDrawableById("RemainingTime");
+        remainingTimeView.setLayout(layout);
+        remainingTimeView.update(calculator.getRemainingTime(), calculator.isFinished());
+        
+        var finishView = View.findDrawableById("Finish");
+        finishView.setLayout(layout);
+        finishView.update(finish);
 
         // Call parent's onUpdate(dc) to redraw the layout
         View.onUpdate(dc);
