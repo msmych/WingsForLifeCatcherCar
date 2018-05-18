@@ -1,2 +1,2 @@
-* Optimized layout for round screens
+* Optimized for round screens
 * Added support for Approach S60
