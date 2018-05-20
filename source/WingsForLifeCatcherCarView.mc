@@ -30,11 +30,11 @@ class WingsForLifeCatcherCarView extends Ui.DataField {
     			break;
     		case OBSCURE_TOP + OBSCURE_LEFT + OBSCURE_RIGHT:
     			layout = TOP;
-    			View.setLayout(Rez.Layouts.TopLayout(dc));
+    			View.setLayout(Rez.Layouts.MainLayout(dc));
     			break;
     		case OBSCURE_BOTTOM + OBSCURE_LEFT + OBSCURE_RIGHT:
     			layout = BOTTOM;
-    			View.setLayout(Rez.Layouts.BottomLayout(dc));
+    			View.setLayout(Rez.Layouts.RoundLayout(dc));
     			break;
     		default:
     			layout = FULL;

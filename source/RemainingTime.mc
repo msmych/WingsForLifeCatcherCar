@@ -3,6 +3,8 @@ using Toybox.Graphics as Gfx;
 
 class RemainingTime extends Ui.Drawable {
 
+	hidden const labelText = "Remaining";
+
 	hidden var text = "0:00:00";
 	
 	hidden var layout = WingsForLifeCatcherCarView.FULL;
@@ -32,6 +34,7 @@ class RemainingTime extends Ui.Drawable {
 	}
 	
 	function draw(dc) {
+		drawLabel(dc);
 		dc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_TRANSPARENT);
 		dc.drawText(
 				getTextX(dc),
@@ -39,6 +42,50 @@ class RemainingTime extends Ui.Drawable {
 				Gfx.FONT_LARGE,
 				text,
 				getTextJustification());
+	}
+	
+	hidden function drawLabel(dc) {
+		dc.setColor(Gfx.COLOR_LT_GRAY, Gfx.COLOR_TRANSPARENT);
+		dc.drawText(
+				getLabelX(dc),
+				getLabelY(dc),
+				Gfx.FONT_XTINY,
+				labelText,
+				getLabelJustification());
+	}
+	
+	hidden function getLabelX(dc) {
+		switch (layout) {
+			case WingsForLifeCatcherCarView.TOP:
+			case WingsForLifeCatcherCarView.BOTTOM:
+				return dc.getWidth()/2 + dc.getWidth()/25;
+			case WingsForLifeCatcherCarView.ROUND:
+			default:
+				return dc.getWidth()*1/4;
+		}
+	}
+	
+	hidden function getLabelY(dc) {
+		switch (layout) {
+			case WingsForLifeCatcherCarView.TOP:
+				return dc.getHeight() - dc.getFontHeight(Gfx.FONT_LARGE) - dc.getFontHeight(Gfx.FONT_XTINY)/2;
+			case WingsForLifeCatcherCarView.BOTTOM:
+				return dc.getFontHeight(Gfx.FONT_LARGE) + dc.getFontHeight(Gfx.FONT_XTINY)/2;
+			case WingsForLifeCatcherCarView.ROUND:
+			default:
+				return dc.getHeight()/2 - dc.getFontHeight(Gfx.FONT_LARGE)/2 - dc.getFontHeight(Gfx.FONT_XTINY)/2;
+		}
+	}
+	
+	hidden function getLabelJustification() {
+		switch (layout) {
+			case WingsForLifeCatcherCarView.TOP:
+			case WingsForLifeCatcherCarView.BOTTOM:
+				return Gfx.TEXT_JUSTIFY_RIGHT | Gfx.TEXT_JUSTIFY_VCENTER;
+			case WingsForLifeCatcherCarView.ROUND:
+			default:
+				return Gfx.TEXT_JUSTIFY_CENTER | Gfx.TEXT_JUSTIFY_VCENTER;
+		}
 	}
 	
 	hidden function getTextX(dc) {

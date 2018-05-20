@@ -1,8 +1,6 @@
 # Wings for Life catcher car
 Garmin data field for simulating Wings for Life catcher car
 
-*If you want to help improving or testing this data field, if you have any suggestions or bug report, please contact me*
-
 ### Catcher car
 More about Wings for Life World Run: [wingsforlifeworldrun.com](https://wingsforlifeworldrun.com)
 
