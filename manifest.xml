@@ -2,6 +2,7 @@
     <iq:application entry="WingsForLifeCatcherCarApp" id="0d32ea8a791c44c8a70d8dbd7f72ccbc" launcherIcon="@Drawables.LauncherIcon" minSdkVersion="2.1.0" name="@Strings.AppName" type="datafield" version="0.2.1">
         <iq:products>
             <iq:product id="approachs60"/>
+            <iq:product id="vivoactive3"/>
             <iq:product id="vivoactive_hr"/>
         </iq:products>
         <iq:permissions/>
