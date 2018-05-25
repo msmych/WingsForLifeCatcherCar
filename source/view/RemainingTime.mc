@@ -34,7 +34,9 @@ class RemainingTime extends Ui.Drawable {
 	}
 	
 	function draw(dc) {
-		drawLabel(dc);
+		if (isLargeEnough(dc)) {
+			drawLabel(dc);
+		}
 		dc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_TRANSPARENT);
 		dc.drawText(
 				getTextX(dc),
@@ -42,6 +44,21 @@ class RemainingTime extends Ui.Drawable {
 				Gfx.FONT_LARGE,
 				text,
 				getTextJustification());
+	}
+	
+	hidden function isLargeEnough(dc) {
+		switch (layout) {
+			case WingsForLifeCatcherCarView.TOP_RIGHT:
+			case WingsForLifeCatcherCarView.BOTTOM_RIGHT:
+			case WingsForLifeCatcherCarView.BOTTOM_LEFT:
+			case WingsForLifeCatcherCarView.TOP_LEFT:
+				return false;
+			case WingsForLifeCatcherCarView.TOP:
+			case WingsForLifeCatcherCarView.BOTTOM:
+				return dc.getHeight() >= dc.getFontHeight(Gfx.FONT_LARGE) + dc.getFontHeight(Gfx.FONT_XTINY)*2;
+			default:
+				return true;
+		}
 	}
 	
 	hidden function drawLabel(dc) {

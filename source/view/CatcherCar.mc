@@ -89,9 +89,17 @@ class CatcherCar extends Ui.Drawable {
 			case WingsForLifeCatcherCarView.ROUND:
 				return dc.getHeight()/2 + dc.getFontHeight(Gfx.FONT_LARGE)/2 + bitmap.getDimensions()[1]/2 - dc.getFontHeight(Gfx.FONT_XTINY)/2;
 			case WingsForLifeCatcherCarView.TOP:
-				return dc.getHeight() - dc.getFontHeight(Gfx.FONT_LARGE) - dc.getFontHeight(Gfx.FONT_XTINY)*3/2;
+				var yTop = dc.getHeight() - dc.getFontHeight(Gfx.FONT_LARGE) - dc.getFontHeight(Gfx.FONT_XTINY)/2;
+				if (dc.getHeight() >= dc.getFontHeight(Gfx.FONT_LARGE) + dc.getFontHeight(Gfx.FONT_XTINY)*2) {
+					yTop -= dc.getFontHeight(Gfx.FONT_XTINY);
+				}
+				return yTop;
 			case WingsForLifeCatcherCarView.BOTTOM:
-				return dc.getFontHeight(Gfx.FONT_LARGE) + dc.getFontHeight(Gfx.FONT_XTINY)*3/2;
+				var yBottom = dc.getFontHeight(Gfx.FONT_LARGE) + dc.getFontHeight(Gfx.FONT_XTINY)/2;
+				if (dc.getHeight() >= dc.getFontHeight(Gfx.FONT_LARGE) + dc.getFontHeight(Gfx.FONT_XTINY)*2) {
+					yBottom += dc.getFontHeight(Gfx.FONT_XTINY);
+				}
+				return yBottom;
 			default:
 				return dc.getHeight() - bitmap.getDimensions()[1]/2 - dc.getFontHeight(Gfx.FONT_XTINY)/2;
 		}
