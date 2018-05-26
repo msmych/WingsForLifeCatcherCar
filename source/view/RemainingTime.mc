@@ -107,6 +107,12 @@ class RemainingTime extends Ui.Drawable {
 	
 	hidden function getTextX(dc) {
 		switch (layout) {
+			case WingsForLifeCatcherCarView.TOP_LEFT:
+			case WingsForLifeCatcherCarView.BOTTOM_LEFT:
+				return dc.getWidth()*24/25;
+			case WingsForLifeCatcherCarView.TOP_RIGHT:
+			case WingsForLifeCatcherCarView.BOTTOM_RIGHT:
+				return dc.getWidth()/25;
 			case WingsForLifeCatcherCarView.TOP:
 			case WingsForLifeCatcherCarView.BOTTOM:
 				return dc.getWidth()/2 + dc.getWidth()/25;
@@ -117,8 +123,12 @@ class RemainingTime extends Ui.Drawable {
 	
 	hidden function getTextY(dc) {
 		switch (layout) {
+			case WingsForLifeCatcherCarView.TOP_LEFT:
+			case WingsForLifeCatcherCarView.TOP_RIGHT:
 			case WingsForLifeCatcherCarView.TOP:
 				return dc.getHeight() - dc.getFontHeight(Gfx.FONT_LARGE)/2;
+			case WingsForLifeCatcherCarView.BOTTOM_LEFT:
+			case WingsForLifeCatcherCarView.BOTTOM_RIGHT:
 			case WingsForLifeCatcherCarView.BOTTOM:
 				return dc.getFontHeight(Gfx.FONT_LARGE)/2;
 			default:
@@ -128,6 +138,11 @@ class RemainingTime extends Ui.Drawable {
 	
 	hidden function getTextJustification() {
 		switch (layout) {
+			case WingsForLifeCatcherCarView.TOP_RIGHT:
+			case WingsForLifeCatcherCarView.BOTTOM_RIGHT:
+				return Gfx.TEXT_JUSTIFY_LEFT | Gfx.TEXT_JUSTIFY_VCENTER;
+			case WingsForLifeCatcherCarView.TOP_LEFT:
+			case WingsForLifeCatcherCarView.BOTTOM_LEFT:
 			case WingsForLifeCatcherCarView.TOP:
 			case WingsForLifeCatcherCarView.BOTTOM:
 				return Gfx.TEXT_JUSTIFY_RIGHT | Gfx.TEXT_JUSTIFY_VCENTER;

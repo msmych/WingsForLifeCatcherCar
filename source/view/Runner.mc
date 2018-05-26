@@ -39,6 +39,8 @@ class Runner extends Ui.Drawable {
 			case WingsForLifeCatcherCarView.ROUND:
 				return dc.getHeight()/2 + dc.getFontHeight(Gfx.FONT_LARGE)/2;
 			case WingsForLifeCatcherCarView.BOTTOM:
+			case WingsForLifeCatcherCarView.BOTTOM_LEFT:
+			case WingsForLifeCatcherCarView.BOTTOM_RIGHT:
 				return 0;
 			default:
 				return dc.getHeight() - bitmap.getDimensions()[1];
