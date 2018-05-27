@@ -1,1 +1,1 @@
-* Added support for vivoactive 3
+* Added support for most 2.x devices

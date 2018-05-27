@@ -21,7 +21,7 @@ class Finish extends Ui.Drawable {
 	}
 	
 	function draw(dc) {
-		if (isLargeEnough(dc)) {		
+		if (isLargeEnoughForLabel(dc)) {		
 			drawLabel(dc);
 		}
 		dc.setColor(Gfx.COLOR_WHITE, Gfx.COLOR_TRANSPARENT);
@@ -33,12 +33,13 @@ class Finish extends Ui.Drawable {
 				getTextJustification());
 	}
 	
-	hidden function isLargeEnough(dc) {
+	hidden function isLargeEnoughForLabel(dc) {
 		switch (layout) {
 			case WingsForLifeCatcherCarView.TOP_RIGHT:
 			case WingsForLifeCatcherCarView.BOTTOM_RIGHT:
 			case WingsForLifeCatcherCarView.BOTTOM_LEFT:
 			case WingsForLifeCatcherCarView.TOP_LEFT:
+			case WingsForLifeCatcherCarView.SHORT:
 				return false;
 			case WingsForLifeCatcherCarView.TOP:
 			case WingsForLifeCatcherCarView.BOTTOM:
@@ -103,6 +104,8 @@ class Finish extends Ui.Drawable {
 			case WingsForLifeCatcherCarView.TOP:
 			case WingsForLifeCatcherCarView.BOTTOM:
 				return dc.getWidth()/2 + dc.getWidth()*2/25;
+			case WingsForLifeCatcherCarView.SHORT:
+				return dc.getWidth()/2;
 			default:
 				return dc.getWidth()*3/4;
 		}
@@ -112,6 +115,7 @@ class Finish extends Ui.Drawable {
 		switch (layout) {
 			case WingsForLifeCatcherCarView.TOP_LEFT:
 			case WingsForLifeCatcherCarView.TOP_RIGHT:
+			case WingsForLifeCatcherCarView.SHORT:
 				return dc.getHeight() - dc.getFontHeight(Gfx.FONT_LARGE)*3/2;
 			case WingsForLifeCatcherCarView.BOTTOM_LEFT:
 			case WingsForLifeCatcherCarView.BOTTOM_RIGHT:

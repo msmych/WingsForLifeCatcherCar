@@ -13,6 +13,7 @@ class WingsForLifeCatcherCarView extends Ui.DataField {
 		BOTTOM_RIGHT,
 		BOTTOM_LEFT,
 		TOP_LEFT,
+		SHORT
 	}
 	
 	hidden var layout = FULL;
@@ -57,7 +58,10 @@ class WingsForLifeCatcherCarView extends Ui.DataField {
     			View.setLayout(Rez.Layouts.MainLayout(dc));
     			break;
     		default:
-    			layout = FULL;
+    			layout = dc.getWidth() >=
+    					dc.getTextWidthInPixels("0:00:00", Gfx.FONT_LARGE)
+    					+ dc.getTextWidthInPixels("100.00", Gfx.FONT_LARGE)
+    					? FULL : SHORT;
     			View.setLayout(Rez.Layouts.MainLayout(dc));
     	}
 
