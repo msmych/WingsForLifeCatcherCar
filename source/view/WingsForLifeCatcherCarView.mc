@@ -8,7 +8,12 @@ class WingsForLifeCatcherCarView extends Ui.DataField {
 		FULL,
 		ROUND,
 		TOP,
-		BOTTOM
+		BOTTOM,
+		TOP_RIGHT,
+		BOTTOM_RIGHT,
+		BOTTOM_LEFT,
+		TOP_LEFT,
+		SHORT
 	}
 	
 	hidden var layout = FULL;
@@ -30,14 +35,33 @@ class WingsForLifeCatcherCarView extends Ui.DataField {
     			break;
     		case OBSCURE_TOP + OBSCURE_LEFT + OBSCURE_RIGHT:
     			layout = TOP;
-    			View.setLayout(Rez.Layouts.TopLayout(dc));
+    			View.setLayout(Rez.Layouts.MainLayout(dc));
     			break;
     		case OBSCURE_BOTTOM + OBSCURE_LEFT + OBSCURE_RIGHT:
     			layout = BOTTOM;
-    			View.setLayout(Rez.Layouts.BottomLayout(dc));
+    			View.setLayout(Rez.Layouts.RoundLayout(dc));
+    			break;
+    		case OBSCURE_TOP + OBSCURE_RIGHT:
+    			layout = TOP_RIGHT;
+    			View.setLayout(Rez.Layouts.MainLayout(dc));
+    			break;
+    		case OBSCURE_BOTTOM + OBSCURE_RIGHT:
+    			layout = BOTTOM_RIGHT;
+    			View.setLayout(Rez.Layouts.MainLayout(dc));
+    			break;
+    		case OBSCURE_BOTTOM + OBSCURE_LEFT:
+    			layout = BOTTOM_LEFT;
+    			View.setLayout(Rez.Layouts.MainLayout(dc));
+    			break;
+    		case OBSCURE_TOP + OBSCURE_LEFT:
+    			layout = TOP_LEFT;
+    			View.setLayout(Rez.Layouts.MainLayout(dc));
     			break;
     		default:
-    			layout = FULL;
+    			layout = dc.getWidth() >=
+    					dc.getTextWidthInPixels("0:00:00", Gfx.FONT_LARGE)
+    					+ dc.getTextWidthInPixels("100.00", Gfx.FONT_LARGE)
+    					? FULL : SHORT;
     			View.setLayout(Rez.Layouts.MainLayout(dc));
     	}
 
