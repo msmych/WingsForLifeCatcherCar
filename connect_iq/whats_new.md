@@ -1,1 +1,1 @@
-* Added support for most 2.x devices
+* Added support for most of 2.x devices
