@@ -41,7 +41,7 @@ class RemainingTime extends Ui.Drawable {
 		dc.drawText(
 				getTextX(dc),
 				getTextY(dc),
-				Gfx.FONT_LARGE,
+				getTextFont(dc),
 				text,
 				getTextJustification());
 	}
@@ -126,10 +126,13 @@ class RemainingTime extends Ui.Drawable {
 	
 	hidden function getTextY(dc) {
 		switch (layout) {
+			case WingsForLifeCatcherCarView.SHORT:
+				if (dc.getFontHeight(Gfx.FONT_LARGE)*2 > dc.getHeight()) {
+					return dc.getHeight() - dc.getFontHeight(Gfx.FONT_MEDIUM)/2;
+				}
 			case WingsForLifeCatcherCarView.TOP_LEFT:
 			case WingsForLifeCatcherCarView.TOP_RIGHT:
 			case WingsForLifeCatcherCarView.TOP:
-			case WingsForLifeCatcherCarView.SHORT:
 				return dc.getHeight() - dc.getFontHeight(Gfx.FONT_LARGE)/2;
 			case WingsForLifeCatcherCarView.BOTTOM_LEFT:
 			case WingsForLifeCatcherCarView.BOTTOM_RIGHT:
@@ -137,6 +140,17 @@ class RemainingTime extends Ui.Drawable {
 				return dc.getFontHeight(Gfx.FONT_LARGE)/2;
 			default:
 				return dc.getHeight()/2;
+		}
+	}
+	
+	hidden function getTextFont(dc) {
+		switch (layout) {
+			case WingsForLifeCatcherCarView.SHORT:
+				if (dc.getFontHeight(Gfx.FONT_LARGE)*2 > dc.getHeight()) {
+					return Gfx.FONT_MEDIUM;
+				}
+			default:
+				return Gfx.FONT_LARGE;
 		}
 	}
 	
