@@ -79,6 +79,9 @@ class WingsForLifeCatcherCarView extends Ui.DataField {
     // Display the value you computed here. This will be called
     // once a second when the data field is visible.
     function onUpdate(dc) {
+    	dc.setColor(Gfx.COLOR_TRANSPARENT, Gfx.COLOR_BLACK);
+        dc.clear();
+    
     	var runnerDistance = calculator.getRunnerDistance();
     	var finish = calculator.getFinish();
     	
