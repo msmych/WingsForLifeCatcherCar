@@ -2,19 +2,19 @@ using Toybox.WatchUi as Ui;
 using Toybox.Graphics as Gfx;
 using Toybox.Activity as Activity;
 
-class WingsForLifeCatcherCarView extends Ui.DataField {
+enum {
+	FULL,
+	ROUND,
+	TOP,
+	BOTTOM,
+	TOP_RIGHT,
+	BOTTOM_RIGHT,
+	BOTTOM_LEFT,
+	TOP_LEFT,
+	SHORT
+}
 
-	enum {
-		FULL,
-		ROUND,
-		TOP,
-		BOTTOM,
-		TOP_RIGHT,
-		BOTTOM_RIGHT,
-		BOTTOM_LEFT,
-		TOP_LEFT,
-		SHORT
-	}
+class WingsForLifeCatcherCarView extends Ui.DataField {
 	
 	hidden var layout = FULL;
 
@@ -79,6 +79,9 @@ class WingsForLifeCatcherCarView extends Ui.DataField {
     // Display the value you computed here. This will be called
     // once a second when the data field is visible.
     function onUpdate(dc) {
+    	dc.setColor(Gfx.COLOR_TRANSPARENT, Gfx.COLOR_BLACK);
+        dc.clear();
+    
     	var runnerDistance = calculator.getRunnerDistance();
     	var finish = calculator.getFinish();
     	

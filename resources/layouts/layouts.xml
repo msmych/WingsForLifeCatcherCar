@@ -1,6 +1,5 @@
 <layouts>
     <layout id="MainLayout">
-		<drawable class="Background"/>
 		<drawable class="CatcherCar"/>
 		<drawable class="Runner"/>
 		<drawable class="RemainingTime"/>
@@ -8,7 +7,6 @@
 	</layout>
 	
 	<layout id="RoundLayout">
-		<drawable class="Background"/>
 		<drawable class="Runner"/>
 		<drawable class="CatcherCar"/>
 		<drawable class="RemainingTime"/>

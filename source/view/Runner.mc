@@ -3,7 +3,7 @@ using Toybox.Graphics as Gfx;
 
 class Runner extends Ui.Drawable {
 
-	hidden var layout = WingsForLifeCatcherCarView.FULL;
+	hidden var layout = FULL;
 
 	hidden var bitmap;
 
@@ -36,11 +36,11 @@ class Runner extends Ui.Drawable {
 	
 	hidden function getBitmapY(dc) {
 		switch (layout) {
-			case WingsForLifeCatcherCarView.ROUND:
+			case ROUND:
 				return dc.getHeight()/2 + dc.getFontHeight(Gfx.FONT_LARGE)/2;
-			case WingsForLifeCatcherCarView.BOTTOM:
-			case WingsForLifeCatcherCarView.BOTTOM_LEFT:
-			case WingsForLifeCatcherCarView.BOTTOM_RIGHT:
+			case BOTTOM:
+			case BOTTOM_LEFT:
+			case BOTTOM_RIGHT:
 				return 0;
 			default:
 				return dc.getHeight() - bitmap.getDimensions()[1];

@@ -3,7 +3,7 @@ using Toybox.Graphics as Gfx;
 	
 class CatcherCar extends Ui.Drawable {
 
-	hidden var layout = WingsForLifeCatcherCarView.FULL;
+	hidden var layout = FULL;
 	hidden var bitmap;
 
 	hidden var distance = 0;
@@ -55,11 +55,11 @@ class CatcherCar extends Ui.Drawable {
 	
 	hidden function getBitmapY(dc) {
 		switch (layout) {
-			case WingsForLifeCatcherCarView.ROUND:
+			case ROUND:
 				return dc.getHeight()/2 + dc.getFontHeight(Gfx.FONT_LARGE)/2;
-			case WingsForLifeCatcherCarView.BOTTOM:
-			case WingsForLifeCatcherCarView.BOTTOM_LEFT:
-			case WingsForLifeCatcherCarView.BOTTOM_RIGHT:
+			case BOTTOM:
+			case BOTTOM_LEFT:
+			case BOTTOM_RIGHT:
 				return 0;
 			default:
 				return dc.getHeight() - bitmap.getDimensions()[1];
@@ -68,12 +68,12 @@ class CatcherCar extends Ui.Drawable {
 	
 	hidden function distanceFromRunnerFits(dc, formattedDistanceFromRunner, position) {
 		switch (layout) {
-			case WingsForLifeCatcherCarView.TOP_LEFT:
-			case WingsForLifeCatcherCarView.TOP_RIGHT:
-			case WingsForLifeCatcherCarView.TOP:
-			case WingsForLifeCatcherCarView.BOTTOM:
-			case WingsForLifeCatcherCarView.BOTTOM_LEFT:
-			case WingsForLifeCatcherCarView.BOTTOM_RIGHT:
+			case TOP_LEFT:
+			case TOP_RIGHT:
+			case TOP:
+			case BOTTOM:
+			case BOTTOM_LEFT:
+			case BOTTOM_RIGHT:
 				return true;
 			default:
 				return dc.getTextWidthInPixels(formattedDistanceFromRunner, Gfx.FONT_XTINY) < position;
@@ -82,14 +82,14 @@ class CatcherCar extends Ui.Drawable {
 	
 	hidden function getDistanceFromRunnerX(dc, position) {
 		switch (layout) {
-			case WingsForLifeCatcherCarView.TOP_LEFT:
-			case WingsForLifeCatcherCarView.BOTTOM_LEFT:
+			case TOP_LEFT:
+			case BOTTOM_LEFT:
 				return dc.getWidth()*24/25;
-			case WingsForLifeCatcherCarView.TOP_RIGHT:
-			case WingsForLifeCatcherCarView.BOTTOM_RIGHT:
+			case TOP_RIGHT:
+			case BOTTOM_RIGHT:
 				return dc.getWidth()/25;
-			case WingsForLifeCatcherCarView.TOP:
-			case WingsForLifeCatcherCarView.BOTTOM:
+			case TOP:
+			case BOTTOM:
 				return dc.getWidth()/2;
 			default:
 				return position;
@@ -98,21 +98,21 @@ class CatcherCar extends Ui.Drawable {
 	
 	hidden function getDistanceFromRunnerY(dc) {
 		switch (layout) {
-			case WingsForLifeCatcherCarView.TOP_LEFT:
-			case WingsForLifeCatcherCarView.TOP_RIGHT:
+			case TOP_LEFT:
+			case TOP_RIGHT:
 				return dc.getHeight() - dc.getFontHeight(Gfx.FONT_LARGE)*2 - dc.getFontHeight(Gfx.FONT_XTINY)/2;
-			case WingsForLifeCatcherCarView.BOTTOM_LEFT:
-			case WingsForLifeCatcherCarView.BOTTOM_RIGHT:
+			case BOTTOM_LEFT:
+			case BOTTOM_RIGHT:
 				return dc.getFontHeight(Gfx.FONT_LARGE)*2 + dc.getFontHeight(Gfx.FONT_XTINY)/2;
-			case WingsForLifeCatcherCarView.ROUND:
+			case ROUND:
 				return dc.getHeight()/2 + dc.getFontHeight(Gfx.FONT_LARGE)/2 + bitmap.getDimensions()[1]/2 - dc.getFontHeight(Gfx.FONT_XTINY)/2;
-			case WingsForLifeCatcherCarView.TOP:
+			case TOP:
 				var yTop = dc.getHeight() - dc.getFontHeight(Gfx.FONT_LARGE) - dc.getFontHeight(Gfx.FONT_XTINY)/2;
 				if (dc.getHeight() >= dc.getFontHeight(Gfx.FONT_LARGE) + dc.getFontHeight(Gfx.FONT_XTINY)*2) {
 					yTop -= dc.getFontHeight(Gfx.FONT_XTINY);
 				}
 				return yTop;
-			case WingsForLifeCatcherCarView.BOTTOM:
+			case BOTTOM:
 				var yBottom = dc.getFontHeight(Gfx.FONT_LARGE) + dc.getFontHeight(Gfx.FONT_XTINY)/2;
 				if (dc.getHeight() >= dc.getFontHeight(Gfx.FONT_LARGE) + dc.getFontHeight(Gfx.FONT_XTINY)*2) {
 					yBottom += dc.getFontHeight(Gfx.FONT_XTINY);
@@ -125,14 +125,14 @@ class CatcherCar extends Ui.Drawable {
 	
 	hidden function getDistanceFromRunnerJustification() {
 		switch (layout) {
-			case WingsForLifeCatcherCarView.TOP_LEFT:
-			case WingsForLifeCatcherCarView.BOTTOM_LEFT:
+			case TOP_LEFT:
+			case BOTTOM_LEFT:
 				return Gfx.TEXT_JUSTIFY_RIGHT | Gfx.TEXT_JUSTIFY_VCENTER;
-			case WingsForLifeCatcherCarView.TOP_RIGHT:
-			case WingsForLifeCatcherCarView.BOTTOM_RIGHT:
+			case TOP_RIGHT:
+			case BOTTOM_RIGHT:
 				return Gfx.TEXT_JUSTIFY_LEFT | Gfx.TEXT_JUSTIFY_VCENTER;
-			case WingsForLifeCatcherCarView.TOP:
-			case WingsForLifeCatcherCarView.BOTTOM:
+			case TOP:
+			case BOTTOM:
 				return Gfx.TEXT_JUSTIFY_CENTER | Gfx.TEXT_JUSTIFY_VCENTER;
 			default:
 				return Gfx.TEXT_JUSTIFY_RIGHT;
