@@ -2,19 +2,19 @@ using Toybox.WatchUi as Ui;
 using Toybox.Graphics as Gfx;
 using Toybox.Activity as Activity;
 
-class WingsForLifeCatcherCarView extends Ui.DataField {
+enum {
+	FULL,
+	ROUND,
+	TOP,
+	BOTTOM,
+	TOP_RIGHT,
+	BOTTOM_RIGHT,
+	BOTTOM_LEFT,
+	TOP_LEFT,
+	SHORT
+}
 
-	enum {
-		FULL,
-		ROUND,
-		TOP,
-		BOTTOM,
-		TOP_RIGHT,
-		BOTTOM_RIGHT,
-		BOTTOM_LEFT,
-		TOP_LEFT,
-		SHORT
-	}
+class WingsForLifeCatcherCarView extends Ui.DataField {
 	
 	hidden var layout = FULL;
 

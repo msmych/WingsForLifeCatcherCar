@@ -7,7 +7,7 @@ class Finish extends Ui.Drawable {
 	
 	hidden var finish = CHAMPION_FINISH;
 	
-	hidden var layout = WingsForLifeCatcherCarView.FULL;
+	hidden var layout = FULL;
 	
 	function initialize() {
 		var settings = {
@@ -35,14 +35,14 @@ class Finish extends Ui.Drawable {
 	
 	hidden function isLargeEnoughForLabel(dc) {
 		switch (layout) {
-			case WingsForLifeCatcherCarView.TOP_RIGHT:
-			case WingsForLifeCatcherCarView.BOTTOM_RIGHT:
-			case WingsForLifeCatcherCarView.BOTTOM_LEFT:
-			case WingsForLifeCatcherCarView.TOP_LEFT:
-			case WingsForLifeCatcherCarView.SHORT:
+			case TOP_RIGHT:
+			case BOTTOM_RIGHT:
+			case BOTTOM_LEFT:
+			case TOP_LEFT:
+			case SHORT:
 				return false;
-			case WingsForLifeCatcherCarView.TOP:
-			case WingsForLifeCatcherCarView.BOTTOM:
+			case TOP:
+			case BOTTOM:
 				return dc.getHeight() >= dc.getFontHeight(Gfx.FONT_LARGE) + dc.getFontHeight(Gfx.FONT_XTINY)*2;
 			default:
 				return true;
@@ -61,10 +61,10 @@ class Finish extends Ui.Drawable {
 	
 	hidden function getLabelX(dc) {
 		switch (layout) {
-			case WingsForLifeCatcherCarView.TOP:
-			case WingsForLifeCatcherCarView.BOTTOM:
+			case TOP:
+			case BOTTOM:
 				return dc.getWidth()/2 + dc.getWidth()*2/25;
-			case WingsForLifeCatcherCarView.ROUND:
+			case ROUND:
 			default:
 				return dc.getWidth()*3/4;
 		}
@@ -72,11 +72,11 @@ class Finish extends Ui.Drawable {
 	
 	hidden function getLabelY(dc) {
 		switch (layout) {
-			case WingsForLifeCatcherCarView.TOP:
+			case TOP:
 				return dc.getHeight() - dc.getFontHeight(Gfx.FONT_LARGE) - dc.getFontHeight(Gfx.FONT_XTINY)/2;
-			case WingsForLifeCatcherCarView.BOTTOM:
+			case BOTTOM:
 				return dc.getFontHeight(Gfx.FONT_LARGE) + dc.getFontHeight(Gfx.FONT_XTINY)/2;
-			case WingsForLifeCatcherCarView.ROUND:
+			case ROUND:
 			default:
 				return dc.getHeight()/2 - dc.getFontHeight(Gfx.FONT_LARGE)/2 - dc.getFontHeight(Gfx.FONT_XTINY)/2;
 		}
@@ -84,10 +84,10 @@ class Finish extends Ui.Drawable {
 	
 	hidden function getLabelJustification() {
 		switch (layout) {
-			case WingsForLifeCatcherCarView.TOP:
-			case WingsForLifeCatcherCarView.BOTTOM:
+			case TOP:
+			case BOTTOM:
 				return Gfx.TEXT_JUSTIFY_LEFT | Gfx.TEXT_JUSTIFY_VCENTER;
-			case WingsForLifeCatcherCarView.ROUND:
+			case ROUND:
 			default:
 				return Gfx.TEXT_JUSTIFY_CENTER | Gfx.TEXT_JUSTIFY_VCENTER;
 		}
@@ -95,16 +95,16 @@ class Finish extends Ui.Drawable {
 	
 	hidden function getTextX(dc) {
 		switch (layout) {
-			case WingsForLifeCatcherCarView.TOP_LEFT:
-			case WingsForLifeCatcherCarView.BOTTOM_LEFT:
+			case TOP_LEFT:
+			case BOTTOM_LEFT:
 				return dc.getWidth()*24/25;
-			case WingsForLifeCatcherCarView.TOP_RIGHT:
-			case WingsForLifeCatcherCarView.BOTTOM_RIGHT:
+			case TOP_RIGHT:
+			case BOTTOM_RIGHT:
 				return dc.getWidth()/25;
-			case WingsForLifeCatcherCarView.TOP:
-			case WingsForLifeCatcherCarView.BOTTOM:
+			case TOP:
+			case BOTTOM:
 				return dc.getWidth()/2 + dc.getWidth()*2/25;
-			case WingsForLifeCatcherCarView.SHORT:
+			case SHORT:
 				return dc.getWidth()/2;
 			default:
 				return dc.getWidth()*3/4;
@@ -113,19 +113,19 @@ class Finish extends Ui.Drawable {
 	
 	hidden function getTextY(dc) {
 		switch (layout) {
-			case WingsForLifeCatcherCarView.SHORT:
+			case SHORT:
 				if (dc.getFontHeight(Gfx.FONT_LARGE)*2 > dc.getHeight()) {
 					return dc.getHeight() - dc.getFontHeight(Gfx.FONT_MEDIUM)*3/2;
 				}
-			case WingsForLifeCatcherCarView.TOP_LEFT:
-			case WingsForLifeCatcherCarView.TOP_RIGHT:
+			case TOP_LEFT:
+			case TOP_RIGHT:
 				return dc.getHeight() - dc.getFontHeight(Gfx.FONT_LARGE)*3/2;
-			case WingsForLifeCatcherCarView.BOTTOM_LEFT:
-			case WingsForLifeCatcherCarView.BOTTOM_RIGHT:
+			case BOTTOM_LEFT:
+			case BOTTOM_RIGHT:
 				return dc.getFontHeight(Gfx.FONT_LARGE)*3/2;
-			case WingsForLifeCatcherCarView.TOP:
+			case TOP:
 				return dc.getHeight() - dc.getFontHeight(Gfx.FONT_LARGE)/2;
-			case WingsForLifeCatcherCarView.BOTTOM:
+			case BOTTOM:
 				return dc.getFontHeight(Gfx.FONT_LARGE)/2;
 			default:
 				return dc.getHeight()/2;
@@ -134,7 +134,7 @@ class Finish extends Ui.Drawable {
 	
 	hidden function getTextFont(dc) {
 		switch (layout) {
-			case WingsForLifeCatcherCarView.SHORT:
+			case SHORT:
 				if (dc.getFontHeight(Gfx.FONT_LARGE)*2 > dc.getHeight()) {
 					return Gfx.FONT_MEDIUM;
 				}
@@ -145,13 +145,13 @@ class Finish extends Ui.Drawable {
 	
 	hidden function getTextJustification() {
 		switch (layout) {
-			case WingsForLifeCatcherCarView.TOP_LEFT:
-			case WingsForLifeCatcherCarView.BOTTOM_LEFT:
+			case TOP_LEFT:
+			case BOTTOM_LEFT:
 				return Gfx.TEXT_JUSTIFY_RIGHT | Gfx.TEXT_JUSTIFY_VCENTER;
-			case WingsForLifeCatcherCarView.TOP_RIGHT:
-			case WingsForLifeCatcherCarView.BOTTOM_RIGHT:
-			case WingsForLifeCatcherCarView.TOP:
-			case WingsForLifeCatcherCarView.BOTTOM:
+			case TOP_RIGHT:
+			case BOTTOM_RIGHT:
+			case TOP:
+			case BOTTOM:
 				return Gfx.TEXT_JUSTIFY_LEFT | Gfx.TEXT_JUSTIFY_VCENTER;
 			default:
 				return Gfx.TEXT_JUSTIFY_CENTER | Gfx.TEXT_JUSTIFY_VCENTER;
