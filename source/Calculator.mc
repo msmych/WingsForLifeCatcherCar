@@ -1,4 +1,3 @@
-using Toybox.Graphics as Gfx;
 using Toybox.Attention as Attention;
 
 const METERS_IN_KILOMETER = 1000;
