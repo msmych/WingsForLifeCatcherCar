@@ -2,14 +2,12 @@
     <layout id="MainLayout">
 		<drawable class="CatcherCar"/>
 		<drawable class="Runner"/>
-		<drawable class="RemainingTime"/>
-		<drawable class="Finish"/>
+		<drawable class="Dashboard"/>
 	</layout>
 	
 	<layout id="RoundLayout">
 		<drawable class="Runner"/>
 		<drawable class="CatcherCar"/>
-		<drawable class="RemainingTime"/>
-		<drawable class="Finish"/>
+		<drawable class="Dashboard"/>
 	</layout>
 </layouts>

@@ -93,13 +93,9 @@ class WingsForLifeCatcherCarView extends Ui.DataField {
         runnerView.setLayout(layout);
         runnerView.update(runnerDistance, finish);
         
-        var remainingTimeView = View.findDrawableById("RemainingTime");
-        remainingTimeView.setLayout(layout);
-        remainingTimeView.update(calculator.getRemainingTime(), calculator.isFinished());
-        
-        var finishView = View.findDrawableById("Finish");
-        finishView.setLayout(layout);
-        finishView.update(finish);
+        var dashboardView = View.findDrawableById("Dashboard");
+        dashboardView.setLayout(layout);
+        dashboardView.update(calculator.getRemainingTime(), calculator.isFinished(), finish);
 
         // Call parent's onUpdate(dc) to redraw the layout
         View.onUpdate(dc);
