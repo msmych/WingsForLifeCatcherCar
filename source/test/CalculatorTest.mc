@@ -13,7 +13,7 @@ class CalculatorTest {
 	}
 
 	(:test)
-	static function inTheBeginning(logger) {
+	static function in_the_beginning(logger) {
 		var calculator = new Calculator();
 		calculator.calculate(generateInfo(0.0f, 0));
 		var catcherCarDistance = calculator.getCatcherCarDistance();
@@ -24,7 +24,7 @@ class CalculatorTest {
 	}
 	
 	(:test)
-	static function after10Minutes(logger) {
+	static function after_10_minutes(logger) {
 		var calculator = new Calculator();
 		calculator.calculate(generateInfo(2000, 0));
 		var catcherCarDistance = calculator.getCatcherCarDistance();
@@ -33,7 +33,7 @@ class CalculatorTest {
 	}
 	
 	(:test)
-	static function after30MinutesRan0(logger) {
+	static function after_30_minutes_ran_0(logger) {
 		var calculator = new Calculator();
 		calculator.calculate(generateInfo(0, 30));
 		var catcherCarDistance = calculator.getCatcherCarDistance();
@@ -44,91 +44,37 @@ class CalculatorTest {
 	}
 	
 	(:test)
-	static function after50Minutes(logger) {
+	static function after_45_minutes(logger) {
 		var calculator = new Calculator();
-		calculator.calculate(generateInfo(8000, 50));
+		calculator.calculate(generateInfo(8000, 45));
 		var catcherCarDistance = calculator.getCatcherCarDistance();
-		Test.assertEqualMessage(5000, catcherCarDistance.toNumber(), catcherCarDistance.toString());
+		logger.debug(catcherCarDistance);
+		Test.assertEqualMessage(3500, catcherCarDistance.toNumber(), catcherCarDistance.toString());
 		return true;
 	}
 	
 	(:test)
-	static function after70Minutes(logger) {
+	static function after_80_minutes(logger) {
 		var calculator = new Calculator();
-		calculator.calculate(generateInfo(11000, 70));
+		calculator.calculate(generateInfo(11000, 80));
 		var catcherCarDistance = calculator.getCatcherCarDistance();
-		Test.assertEqualMessage(10000, catcherCarDistance.toNumber(), catcherCarDistance.toString());
+		logger.debug(catcherCarDistance);
+		Test.assertEqualMessage(12000, catcherCarDistance.toNumber(), catcherCarDistance.toString());
 		return true;
 	}
 	
 	(:test)
-	static function after90Minutes(logger) {
-		var calculator = new Calculator();
-		calculator.calculate(generateInfo(16000, 90));
-		var catcherCarDistance = calculator.getCatcherCarDistance();
-		Test.assertEqualMessage(15000, catcherCarDistance, catcherCarDistance);
-		return true;
-	}
-	
-	(:test)
-	static function after100MinutesRan0(logger) {
-		var calculator = new Calculator();
-		calculator.calculate(generateInfo(0, 100));
-		var finish = calculator.getFinish();
-		Test.assertEqualMessage(0, finish, finish.toString());
-		return true;
-	}
-	
-	(:test)
-	static function after105Minutes(logger) {
+	static function after_105_minutes(logger) {
 		var calculator = new Calculator();
 		calculator.calculate(generateInfo(20000, 105));
 		var catcherCarDistance = calculator.getCatcherCarDistance();
-		Test.assertEqualMessage(19000, catcherCarDistance.toNumber(), catcherCarDistance.toString());
+		logger.debug(catcherCarDistance);
+		Test.assertEqualMessage(18500, catcherCarDistance.toNumber(), catcherCarDistance.toString());
 		return true;
 	}
 	
 	(:test)
-	static function after42MinutesRan5Km(logger) {
-		var calculator = new Calculator();
-		calculator.calculate(generateInfo(5000.0f, 45));
-		var finish = calculator.getFinish();
-		logger.debug(finish);
-		Test.assert((6000 - finish).abs() < 1);
-		return true;
-	}
-	
-	(:test)
-	static function after60MinutesRan9Km(logger) {
-		var calculator = new Calculator();
-		calculator.calculate(generateInfo(9000.0f, 60));
-		var finish = calculator.getFinish();
-		logger.debug(finish);
-		Test.assert((11250 - finish).abs() < 1);
-		return true;
-	}
-	
-	(:test)
-	static function after90MinutesRan15Km(logger) {
-		var calculator = new Calculator();
-		calculator.calculate(generateInfo(15000.0f, 90));
-		var finish = calculator.getFinish();
-		Test.assertEqualMessage(15000.0f, finish, finish);
-		return true;
-	}
-	
-	(:test)
-	static function after90MinutesRan175Km(logger) {
-		var calculator = new Calculator();
-		calculator.calculate(generateInfo(17500.0f, 90));
-		var finish = calculator.getFinish();
-		logger.debug(finish);
-		Test.assert((24231 - finish).abs() < 1);
-		return true;
-	}
-	
-	(:test)
-	static function after150MinutesRan31Km(logger) {
+	static function after_150_minutes_ran_31_km(logger) {
 		var calculator = new Calculator();
 		calculator.calculate(generateInfo(31000, 150));
 		var catcherCarDistance = calculator.getCatcherCarDistance();
@@ -139,105 +85,67 @@ class CalculatorTest {
 	}
 	
 	(:test)
-	static function after150MinutesRan33Km(logger) {
+	static function after_135_minutes(logger) {
 		var calculator = new Calculator();
-		calculator.calculate(generateInfo(33000.0f, 150));
-		var finish = calculator.getFinish();
-		logger.debug(finish);
-		Test.assert((39947 - finish).abs() < 1);
-		return true;
-	}
-	
-	(:test)
-	static function after180Minutes(logger) {
-		var calculator = new Calculator();
-		calculator.calculate(generateInfo(40000, 180));
+		calculator.calculate(generateInfo(40000, 135));
 		var catcherCarDistance = calculator.getCatcherCarDistance();
-		Test.assertEqualMessage(39500, catcherCarDistance.toNumber(), catcherCarDistance.toString());
+		logger.debug(catcherCarDistance);
+		Test.assertEqualMessage(26750, catcherCarDistance.toNumber(), catcherCarDistance.toString());
 		return true;
 	}
 	
 	(:test)
-	static function after210MinutesRan48Km(logger) {
+	static function after_165_minutes(logger) {
 		var calculator = new Calculator();
-		calculator.calculate(generateInfo(48000.0f, 210));
+		calculator.calculate(generateInfo(40000, 165));
 		var catcherCarDistance = calculator.getCatcherCarDistance();
-		Test.assertEqualMessage(48000, catcherCarDistance.toNumber(), catcherCarDistance.toString());
-		var finish = calculator.getFinish();
-		logger.debug(finish);
-		Test.assert((48000 - finish).abs() < 1);
+		logger.debug(catcherCarDistance);
+		Test.assertEqualMessage(35500, catcherCarDistance.toNumber(), catcherCarDistance.toString());
 		return true;
 	}
 	
 	(:test)
-	static function after210MinutesRan54Km(logger) {
+	static function after_195_minutes(logger) {
 		var calculator = new Calculator();
-		calculator.calculate(generateInfo(54000.0f, 210));
-		var finish = calculator.getFinish();
-		logger.debug(finish);
-		Test.assert((74250 - finish).abs() < 1);
-		return true;
-	}
-	
-	(:test)
-	static function after270MinutesRan70Km(logger) {
-		var calculator = new Calculator();
-		calculator.calculate(generateInfo(70000, 270));
+		calculator.calculate(generateInfo(40000, 195));
 		var catcherCarDistance = calculator.getCatcherCarDistance();
-		Test.assertEqualMessage(68000, catcherCarDistance.toNumber(), catcherCarDistance.toString());
+		logger.debug(catcherCarDistance);
+		Test.assertEqualMessage(45500, catcherCarDistance.toNumber(), catcherCarDistance.toString());
 		return true;
 	}
 	
 	(:test)
-	static function after330MinutesRan88Km(logger) {
+	static function after_225_minutes(logger) {
 		var calculator = new Calculator();
-		calculator.calculate(generateInfo(88000.0f, 330));
+		calculator.calculate(generateInfo(40000, 225));
 		var catcherCarDistance = calculator.getCatcherCarDistance();
-		Test.assertEqualMessage(88000, catcherCarDistance.toNumber(), catcherCarDistance.toString());
-		var finish = calculator.getFinish();
-		Test.assertEqualMessage(88000.0f, finish, finish.toString());
+		logger.debug(catcherCarDistance);
+		Test.assertEqualMessage(57500, catcherCarDistance.toNumber(), catcherCarDistance.toString());
 		return true;
 	}
 	
 	(:test)
-	static function after330MinutesRan93Km(logger) {
+	static function after_255_minutes(logger) {
 		var calculator = new Calculator();
-		calculator.calculate(generateInfo(93000.0f, 330));
-		var finish = calculator.getFinish();
-		logger.debug(finish);
-		Test.assert((97673 - finish).abs() < 1);
-		return true;
-	}
-	
-	(:test)
-	static function after330MinutesRan99Km(logger) {
-		var calculator = new Calculator();
-		calculator.calculate(generateInfo(99000.0f, 330));
-		var finish = calculator.getFinish();
-		Test.assertEqualMessage(CHAMPION_FINISH, finish, finish);
-		return true;
-	}
-	
-	(:test)
-	static function after342MinutesRan98Km(logger) {
-		var calculator = new Calculator();
-		calculator.calculate(generateInfo(98000, 342));
+		calculator.calculate(generateInfo(40000, 255));
 		var catcherCarDistance = calculator.getCatcherCarDistance();
-		Test.assertEqualMessage(95000, catcherCarDistance.toNumber(), catcherCarDistance.toString());
+		logger.debug(catcherCarDistance);
+		Test.assertEqualMessage(71500, catcherCarDistance.toNumber(), catcherCarDistance.toString());
 		return true;
 	}
 	
 	(:test)
-	static function after390MinutesRan125Km(logger) {
+	static function after_285_minutes(logger) {
 		var calculator = new Calculator();
-		calculator.calculate(generateInfo(125000, 390));
+		calculator.calculate(generateInfo(40000, 285));
 		var catcherCarDistance = calculator.getCatcherCarDistance();
-		Test.assertEqualMessage(123000, catcherCarDistance.toNumber(), catcherCarDistance.toString());
+		logger.debug(catcherCarDistance);
+		Test.assertEqualMessage(87500, catcherCarDistance.toNumber(), catcherCarDistance.toString());
 		return true;
 	}
 	
 	(:test)
-	static function afterFinished(logger) {
+	static function after_finished(logger) {
 		var calculator = new Calculator();
 		calculator.calculate(generateInfo(0, 90));
 		var finish = calculator.getFinish();
